@@ -1,4 +1,4 @@
-<html prefix="og: http://ogp.me/ns#" lang="en">
+<html prefix="og: http://ogp.me/ns#" lang="en" class="auth-page">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
