@@ -255,3 +255,33 @@ a.pdf-btn-link {
 a.pdf-btn-link:hover{
     background: #b72711;
 }
+.custom-login-page .card-box{
+    background-color: #20294a;
+    color: #fff;
+}
+.custom-login-page,
+.custom-login-page h1,
+.custom-login-page h2,
+.custom-login-page h3,
+.custom-login-page h4,
+.custom-login-page h5,
+.custom-login-page h6{
+    color: #fff;
+}
+.btn-primary{
+    background-color: #422fd3 !important;
+    border-color: #422fd3 !important;
+}
+.btn-primary:hover{
+    background-color: #4d39e9 !important;
+    border-color: #4d39e9 !important;
+}
+.text-primary{
+    color: #4d39e9 !important;
+}
+.custom-login-page a {
+    color: #8575ff;
+}
+.custom-login-page a:hover {
+    color: #fff;
+}

@@ -6,10 +6,10 @@
     <div class="panel-heading">
         <a href="{{ route('login') }}">
             <div class="login-logo">
-                <img src="{{ asset('back-office/images/comp-logo.png') }}" alt="Martin School Travel" title="Martin School Travel">
+                <img src="{{ asset('back-office/images/comp-logo.png') }}" alt="Cyber Capital Group" title="Cyber Capital Group">
             </div>
         </a>
-        <h3 class="text-center"> Sign In to <strong class="text-custom text-danger">Martin School Travel</strong> </h3>
+        <h3 class="text-center"> Sign In to <strong class="text-white">Cyber Capital Group</strong> </h3>
     </div>
     <div class="panel-body">
         <form action="{{ route('login') }}" class="form-horizontal m-t-10" method="POST">
@@ -56,16 +56,21 @@
 
             <div class="form-group text-center m-t-40">
                 <div class="col-xs-12">
-                    <button class="btn btn-danger btn-block text-uppercase waves-effect waves-light" type="submit">Log In</button>
+                    <button class="btn btn-primary btn-block text-uppercase waves-effect waves-light" type="submit">Log In</button>
                 </div>
             </div>
             @if (Route::has('password.request'))
                 <div class="form-group m-t-30 m-b-0">
                     <div class="col-sm-12 text-center">
-                        <a href="{{ route('password.request') }}" class="text-dark"><i class="fa fa-lock m-r-5"></i> Forgot your password?</a>
+                        <a href="{{ route('password.request') }}"><i class="fa fa-lock m-r-5"></i> Forgot your password?</a>
                     </div>
                 </div>
             @endif
+            <div class="form-group m-t-30 m-b-0">
+                <div class="col-sm-12 text-center">
+                    <i class="fa fa-user m-r-5"></i> Don't have account? <a href="{{ route('register') }}">Register here.</a>
+                </div>
+            </div>
         </form>
     </div>
 @endsection
