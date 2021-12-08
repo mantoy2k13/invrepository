@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Front\FrontOfficeController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Dashboard\Dashboard\DashboardController;
+use App\Http\Controllers\Dashboard\Assets\AssetController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,7 +21,9 @@ use App\Http\Controllers\Dashboard\Dashboard\DashboardController;
 Route::get('/', [LoginController::class, 'login'])->name('login');
 Route::prefix('/')->middleware(['auth'])->namespace('Dashboard')->group( function(){
     /* Dashboard */
-    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+    Route::get('/admin/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+    /* Assets */
+    Route::get('/admin/assets', [AssetController::class, 'index'])->name('assets');
 });
 // Auth
 Auth::routes();
