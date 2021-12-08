@@ -160,10 +160,11 @@ i.upload-icon {
 .acc-img:hover > i.fa.upload-icon, .license-img:hover > i.fa.upload-icon {
     opacity: 1;
 }
-#sidebar-menu > ul > li > a.active {
-    background: #eaeaea !important;
-    border-left: 3px solid #dc442c;
-    color: #dc442c !important;
+#sidebar-menu > ul > li > a.active,
+#sidebar-menu .subdrop {
+    background: #004aad !important;
+    border-left: 3px solid #ffffff;
+    color: #ffffff !important;
 }
 .pagination > .active > a, .pagination > .active > span, .pagination > .active > a:hover, .pagination > .active > span:hover, .pagination > .active > a:focus, .pagination > .active > span:focus {
     background-color: #36404a;
@@ -181,8 +182,16 @@ i.upload-icon {
 }
 #sidebar-menu > ul > li > a {
     color: #fff;
+    border-left: 3px solid #1b2032;
 }
-#sidebar-menu > ul > li > a:hover {
+#sidebar-menu ul ul a {
+    color: #ffffff;
+    transition: .2s;
+}
+#sidebar-menu ul ul a:hover {
+    color: #578dd5;
+}
+#sidebar-menu > ul > li > a:hover:not(a.active) {
     color: #a0a5b5;
     border-left: 3px solid #004aad;
 }
@@ -193,7 +202,6 @@ i.upload-icon {
 	padding: 3.25rem;
 	border: 2px solid #5f5e5d !important;
 }
-
 .drop-images:hover {
 	border: 2px dashed #ff9b28 !important;
 }

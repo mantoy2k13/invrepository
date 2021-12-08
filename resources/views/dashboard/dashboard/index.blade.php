@@ -8,31 +8,37 @@
             <div class="container">
                 <div class="row">
                     <div class="col-sm-12">
-                        <div class="card-box">
-                            <div class="btn-group pull-right tbl-btn-options">
-                                <a href="#" class="btn btn-danger waves-effect waves-light btn-sm"><i class="ti-plus"></i> Add Attractions</a>
-                            </div>
-                            <h4 class="m-t-0 header-title"><b>List of Attractions</b></h4>
-                            <p class="text-muted m-b-30 font-13">
-                                List of all attractions below.
-                            </p>
-                            <table id="attractionTable" class="table table-striped table-bordered">
-                                <thead>
-                                    <tr>
-                                        <th style="width:50px" class="text-center"><i class="ti-image"></i></th>
-                                        <th style="width:150px">Name</th>
-                                        <th style="width:150px">City</th>
-                                        <th style="width:250px">Navigating the Attraction</th>
-                                        <th style="width:250px">About the Attraction</th>
-                                        <th style="width:250px">Did you know </th>
-                                        <th style="width:250px">Drop off & Pick up </th>
-                                        <th style="width:50px">Action</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-
-                                </tbody>
-                            </table>
+                        <h4 class="page-title">Dashboard</h4>
+                        <p class="text-muted page-title-alt">Welcome to Cyber Capital Group</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-3 col-sm-6">
+                        <div class="widget-panel widget-style-2 bg-white">
+                            <i class="md md-attach-money text-primary"></i>
+                            <h2 class="m-0 text-dark counter font-600">50568</h2>
+                            <div class="text-muted m-t-5">Total Revenue</div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-sm-6">
+                        <div class="widget-panel widget-style-2 bg-white">
+                            <i class="md md-add-shopping-cart text-pink"></i>
+                            <h2 class="m-0 text-dark counter font-600">1256</h2>
+                            <div class="text-muted m-t-5">Sales</div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-sm-6">
+                        <div class="widget-panel widget-style-2 bg-white">
+                            <i class="md md-store-mall-directory text-info"></i>
+                            <h2 class="m-0 text-dark counter font-600">18</h2>
+                            <div class="text-muted m-t-5">Stores</div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-sm-6">
+                        <div class="widget-panel widget-style-2 bg-white">
+                            <i class="md md-account-child text-custom"></i>
+                            <h2 class="m-0 text-dark counter font-600">8564</h2>
+                            <div class="text-muted m-t-5">Users</div>
                         </div>
                     </div>
                 </div>
