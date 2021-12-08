@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use App\Models\User;
+use App\Models\PersonalInformation;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
@@ -29,7 +30,7 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = RouteServiceProvider::HOME;
+    protected $redirectTo = '/dashboard';
 
     /**
      * Create a new controller instance.
@@ -64,11 +65,21 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        return User::create([
-            'username' => $data['username'],
-            'email'     => $data['email'],
-            'password'  => Hash::make($data['password']),
-            'role'      => 'guest', // admin, member, guest
-        ]);
+        // Insert to User
+        $user           = new User;
+        $user->username = $data['username'];
+        $user->email    = $data['email'];
+        $user->password = \Hash::make($data['password']);
+        $user->role     = 'guest';
+        $user->save();
+
+        // Insert to Personal Information
+        $info             = new PersonalInformation;
+        $info->user_id    = $user->id;
+        $info->first_name = $data['first_name'];
+        $info->last_name  = $data['last_name'];
+        $info->nickname   = $data['first_name'];
+        $info->save();
+        return $user;
     }
 }

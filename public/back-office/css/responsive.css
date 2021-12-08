@@ -18,9 +18,15 @@
   }
 }
 @media (max-width: 1020px) {
-  .tbl-responsive {
-      overflow-x: auto;
-  }
+    .tbl-responsive {
+        overflow-x: auto;
+    }
+    .wrapper-page.custom-login-page {
+        width: 70rem;
+    }
+    .auth-img {
+        height: 25rem;  
+    }
 }
 @media (min-width: 1200px) {
   .container-alt {
@@ -33,9 +39,12 @@
   }
 }
 @media (min-width: 768px) and (max-width: 991px) {
-  body {
-      overflow-x: hidden;
-  }
+    body {
+        overflow-x: hidden;
+    }
+    .col-md-6.auth-left-img{
+        display: none !important;
+    }
 }
 @media only screen and (max-width: 990px) {
   .content-page{
@@ -84,62 +93,65 @@
   }
 }
 @media only screen and (max-width: 767px) {
-  .container-alt {
-      width: 750px;
-  }
-  #datatable_wrapper thead,
-  #memberTbl_wrapper thead,
-  #vendorTbl_wrapper thead,
-  #petTbl_wrapper thead  {
-      display: none;
-  }
-  #datatable_wrapper tbody tr td,
-  #memberTbl_wrapper tbody tr td,
-  #vendorTbl_wrapper tbody tr td,
-  #petTbl_wrapper tbody tr td {
-      display: block;
-      border: 0;
-      width: auto;
-      text-align: left;
-  }
-  #datatable_wrapper tbody tr td:first-child,
-  #memberTbl_wrapper tbody tr td:first-child,
-  #vendorTbl_wrapper tbody tr td:first-child,
-  #petTbl_wrapper tbody tr td:first-child {
-      padding: 6px 0 !important;
-      background: #eee;
-      color: #000;
-      font-weight: 700;
-      border-radius: 20px;
-      margin: 5px 0;
-      text-align: center;
-  }
-  #datatable_wrapper tbody tr td:last-child,
-  #memberTbl_wrapper tbody tr td:last-child,
-  #vendorTbl_wrapper tbody tr td:last-child,
-  #petTbl_wrapper tbody tr td:last-child {
-      border-bottom: 1px solid #ebeff2;
-      text-align: center;
-  }
-  table span.ttl {
-      font-weight: 700;
-      color: #000;
-      display: inline-block !important;
-  }
-  div.dataTables_length {
-      text-align: left;
-  }
-  div.dataTables_filter{
-      position: absolute;
-      bottom: 0;
-      right: 6.5rem;
-  }
-  .tbl-responsive{
-      overflow-x: hidden;
-  }
-  table .tbl-img {
-      width: 100%;
-  }
+    .container-alt {
+        width: 750px;
+    }
+    #datatable_wrapper thead,
+    #memberTbl_wrapper thead,
+    #vendorTbl_wrapper thead,
+    #petTbl_wrapper thead  {
+        display: none;
+    }
+    #datatable_wrapper tbody tr td,
+    #memberTbl_wrapper tbody tr td,
+    #vendorTbl_wrapper tbody tr td,
+    #petTbl_wrapper tbody tr td {
+        display: block;
+        border: 0;
+        width: auto;
+        text-align: left;
+    }
+    #datatable_wrapper tbody tr td:first-child,
+    #memberTbl_wrapper tbody tr td:first-child,
+    #vendorTbl_wrapper tbody tr td:first-child,
+    #petTbl_wrapper tbody tr td:first-child {
+        padding: 6px 0 !important;
+        background: #eee;
+        color: #000;
+        font-weight: 700;
+        border-radius: 20px;
+        margin: 5px 0;
+        text-align: center;
+    }
+    #datatable_wrapper tbody tr td:last-child,
+    #memberTbl_wrapper tbody tr td:last-child,
+    #vendorTbl_wrapper tbody tr td:last-child,
+    #petTbl_wrapper tbody tr td:last-child {
+        border-bottom: 1px solid #ebeff2;
+        text-align: center;
+    }
+    table span.ttl {
+        font-weight: 700;
+        color: #000;
+        display: inline-block !important;
+    }
+    div.dataTables_length {
+        text-align: left;
+    }
+    div.dataTables_filter{
+        position: absolute;
+        bottom: 0;
+        right: 6.5rem;
+    }
+    .tbl-responsive{
+        overflow-x: hidden;
+    }
+    table .tbl-img {
+        width: 100%;
+    }
+    .custom-login-page .auth-left-img{
+        display: none;
+    }
 }
 @media (max-width: 767px) {
     .gallery-img {

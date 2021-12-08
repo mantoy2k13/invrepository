@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Front\FrontOfficeController;
 use App\Http\Controllers\Auth\LoginController;
-use App\Http\Controllers\HomeController;
+use App\Http\Controllers\Dashboard\Dashboard\DashboardController;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,7 +18,9 @@ use App\Http\Controllers\HomeController;
 
 // Homepage to Login
 Route::get('/', [LoginController::class, 'login'])->name('login');
-Route::get('/home', [HomeController::class, 'index'])->name('home');
-
+Route::prefix('/')->middleware(['auth'])->namespace('Dashboard')->group( function(){
+    /* Dashboard */
+    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+});
 // Auth
 Auth::routes();

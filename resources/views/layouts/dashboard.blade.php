@@ -31,8 +31,8 @@
 </head>
 <body class="fixed-left">
     <div class="no-printme" id="wrapper">
-        @include('dashboard.partials.topbar')
-        @include('dashboard.partials.sidebar')
+        @include('dashboard._partials.topbar')
+        @include('dashboard._partials.sidebar')
         @yield('content')
     </div>
 
