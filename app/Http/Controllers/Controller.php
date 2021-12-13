@@ -10,4 +10,25 @@ use Illuminate\Routing\Controller as BaseController;
 class Controller extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
+
+    public function upload_image($file, $folder_name, $old_img=''){
+        if($file){
+            if($old_img){
+                $old_img_name = explode('uploads', $old_img); 
+                // Output: [0] => https://ccsg.com/storage/, [1] => /products/img_5f69fb6a9a624.png
+                $path = storage_path('app/public/uploads');
+                if(file_exists($path.$old_img_name[1])){
+                    unlink($path.$old_img_name[1]);
+                }
+            }
+            $img_name = 'img_'.uniqid().'.png';
+            $dataImg = explode(',', $file);
+            $decoded = base64_decode($dataImg[1]);
+            file_put_contents(storage_path(). '/app/public/uploads/'.$folder_name.'/'.$img_name, $decoded);
+            return '/storage/uploads/'.$folder_name.'/'.$img_name;
+            //Format = https://ccsg.com/storage/uploads/photos/img_5ef0b4e632874.png
+        }else{
+            return $old_img;
+        }
+    }
 }

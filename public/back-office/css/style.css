@@ -16,6 +16,9 @@ html.auth-page body{
 .d-block{
     display: block !important;
 }
+.full-width{
+   width: 100%; 
+}
 .table-bordered p{
     margin: 0 !important;
 }

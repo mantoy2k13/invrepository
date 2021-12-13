@@ -19,13 +19,12 @@ jQuery(document).ready(function($) {
     });
 });
 
-function previewImage(e, parent){
+function previewImage(e, parent, name){
     const file = e.files[0];
     if (file){
         if(file.size <= 3000000) { // 3MB
             let reader = new FileReader();
             reader.onload = function(event){
-                console.log(event.target.result);
                 $(parent).html(
                     '<div class="uploaded-files-wrapper img-responsive">'+
                         '<img src="'+event.target.result+'" alt="" >'+
@@ -34,7 +33,7 @@ function previewImage(e, parent){
                             ' <p class="text-black">Click to Change Image</p>'+
                         '</div>'+
                         '<input id="uploadFiles" type="file" accept=".gif, .png, .jpg, .jpeg" onchange="previewImage(this, \'.asset-image-upload\')">'+
-                        '<input name="asset_image" value="'+event.target.result+'" hidden>' +
+                        '<input name="'+name+'" value="'+event.target.result+'" hidden>' +
                     '</div>'
                 );
             }

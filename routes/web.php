@@ -27,7 +27,8 @@ Route::prefix('/')->middleware(['auth'])->namespace('Dashboard')->group( functio
     Route::get('/admin/dashboard', [DashboardController::class, 'index'])->name('dashboard');
     /* Assets */
     Route::get('/admin/assets', [AssetController::class, 'index'])->name('assets');
-    Route::get('/admin/add-new-asset', [AssetController::class, 'addAsset'])->name('add-new-asset');
+    Route::get('/admin/add-new-asset', [AssetController::class, 'addAsset'])->name('asset.create');
+    Route::post('/admin/store-asset', [AssetController::class, 'storeAsset'])->name('asset.store');
 });
 // Auth
 Auth::routes();

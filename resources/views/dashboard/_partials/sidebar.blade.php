@@ -10,7 +10,7 @@
                     <a href="{{ route('assets') }}" class="waves-effect {{ (request()->is('admin/assets') || request()->is('admin/add-new-asset')) ? 'active' : '' }}"><i class="ti-stats-up"></i> <span> Assets </span> </a>
                     <ul class="list-unstyled">
                         <li class="{{ request()->is('admin/assets') ? 'active' : '' }}"><a href="{{ route('assets') }}">All Assets</a></li>
-                        <li class="{{ request()->is('admin/add-new-asset') ? 'active' : '' }}"><a href="{{ route('add-new-asset') }}">Add New Asset</a></li>
+                        <li class="{{ request()->is('admin/add-new-asset') ? 'active' : '' }}"><a href="{{ route('asset.create') }}">Add New Asset</a></li>
                     </ul>
                 </li>
                 <li><a href="javascript:;" class="waves-effect"><i class="ti-user"></i> <span> Users </span> </a></li>

@@ -1,6 +1,6 @@
 @extends('layouts.dashboard')
 
-@section('title', 'Dashboard')
+@section('title', 'Add New Asset | Assets')
 
 @section('content')
     <div class="content-page">
@@ -19,7 +19,7 @@
                         </ol>
                     </div>
                 </div>
-                <form action="javascript:;" data-parsley-validate>
+                <form action="{{ route('asset.store') }}" data-parsley-validate method="POST" id="assetForm">
                     <div class="row">
                         <div class="col-lg-9 col-md-8 col-sm-6 col-xs-12">
                             <div class="card-box">
@@ -28,6 +28,7 @@
                                     Fill up all the required fields below.
                                 </p>
                                 <div class="row">
+                                    @csrf
                                     <div class="col-sm-12">
                                         <div class="form-group">
                                             <label for="asset_name">Asset Name</label>
@@ -43,7 +44,7 @@
                                             <label for="asset_price">Asset Price</label>
                                             <div class="input-group">
                                                 <span class="input-group-addon"><i class="fa fa-dollar"></i></span>
-                                                <input type="number" min="0" id="asset_price" name="asset_price" class="form-control" placeholder="0.00">
+                                                <input type="number" min="0" id="asset_price" name="asset_price" class="form-control" placeholder="0.00" required>
                                             </div>
                                         </div>
                                     </div>
@@ -52,7 +53,7 @@
                                             <label for="asset_quantity">Asset Quantity</label>
                                             <div class="input-group">
                                                 <span class="input-group-addon"><i class="fa fa-shopping-cart"></i></span>
-                                                <input type="number" min="0" id="asset_quantity" name="asset_quantity" class="form-control" placeholder="0">
+                                                <input type="number" min="0" id="asset_quantity" name="asset_quantity" class="form-control" placeholder="0" required>
                                             </div>
                                         </div>
                                     </div>
@@ -72,14 +73,18 @@
                                                 <div class="upload-files-wrapper">
                                                     <i class="ti-export"></i>
                                                     <p class="text-black">Drag and Drop Images here or <br>Click to Upload</p>
-                                                    <input type="file" accept=".gif, .png, .jpg, .jpeg" onchange="previewImage(this, '.asset-image-upload')">
+                                                    <input type="file" accept=".gif, .png, .jpg, .jpeg" onchange="previewImage(this, '.asset-image-upload', 'asset_image')">
                                                 </div>
                                             </div>
+                                            <input type="hidden" name="oldImgLink" value="">
                                         </div>
                                         <div class="form-group">
                                             <label for="video_banner">Featured Video Banner</label>
-                                            <input type="text" class="form-control" id="video_banner" name="video_banner" placeholder="https://www.youtube.com/embed/video-youtube-id" required>
+                                            <input type="text" class="form-control" id="video_banner" name="video_banner" placeholder="https://www.youtube.com/embed/video-youtube-id">
                                             <small>Copy the video embed URL. The URL format should be "https://www.youtube.com/embed/video-youtube-id".</small>
+                                        </div>
+                                        <div class="form-group">
+                                            <button class="btn btn-inverse d-block full-width has-spinner" type="button" onclick="submitAsset(this, 'assetForm')">Save Asset</button>
                                         </div>
                                     </div>
                                 </div>
@@ -95,3 +100,7 @@
     </div>
     
 @endsection
+
+@push('scripts')
+<script src="{{ asset('back-office/js/init/init_asset.js') }}"></script>
+@endpush
