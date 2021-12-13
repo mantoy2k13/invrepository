@@ -24,6 +24,7 @@
     <link href="{{ asset('back-office/css/pages.css') }}" rel="stylesheet" type="text/css" />
     <link href="{{ asset('back-office/plugins/magnific-popup/dist/magnific-popup.css') }}" rel="stylesheet"/>
     <link href="{{ asset('back-office/plugins/intltelInput/css/intlTelInput.css') }}" rel="stylesheet"/>
+    <link href="{{ asset('back-office/plugins/toastr/toastr.min.css') }}" rel="stylesheet"/>
     <link href="{{ asset('back-office/css/style.css') }}" rel="stylesheet" type="text/css" />
     <link href="{{ asset('back-office/css/responsive.css') }}" rel="stylesheet" type="text/css" />
     <script src="{{ asset('back-office/js/modernizr.min.js') }}"></script>
@@ -57,11 +58,13 @@
     <script src="{{ asset('back-office/js/jquery.app.js') }}"></script>
     <script src="{{ asset('back-office/js/buttonLoader.js') }}"></script>
     <script src="{{ asset('back-office/plugins/select2/select2.min.js') }}" type="text/javascript"></script>
+    <script src="{{ asset('back-office/plugins/summernote/dist/summernote.min.js') }}" type="text/javascript"></script>
     <script src="{{ asset('back-office/plugins/sweetalert/sweetalert.min.js') }}" type="text/javascript"></script>
     <script src="{{ asset('back-office/plugins/notifyjs/dist/notify.min.js') }}"></script>
     <script src="{{ asset('back-office/plugins/notifications/notify-metro.js') }}"></script>
     <script src="{{ asset('back-office/plugins/magnific-popup/dist/jquery.magnific-popup.min.js') }}" type="text/javascript"></script>
     <script src="{{ asset('back-office/plugins/bootstrap-filestyle/src/bootstrap-filestyle.min.js') }}" type="text/javascript"></script>
+    <script src="{{ asset('back-office/plugins/toastr/toastr.min.js') }}" type="text/javascript"></script>
     <script src="{{ asset('back-office/js/init/init_general.js') }}"></script>
     @stack('scripts')
 </body>

@@ -18,12 +18,16 @@ use App\Http\Controllers\Dashboard\Assets\AssetController;
 */
 
 // Homepage to Login
-Route::get('/', [LoginController::class, 'login'])->name('login');
+Route::get('/', function() {
+    return redirect('/login');
+});
+
 Route::prefix('/')->middleware(['auth'])->namespace('Dashboard')->group( function(){
     /* Dashboard */
     Route::get('/admin/dashboard', [DashboardController::class, 'index'])->name('dashboard');
     /* Assets */
     Route::get('/admin/assets', [AssetController::class, 'index'])->name('assets');
+    Route::get('/admin/add-new-asset', [AssetController::class, 'addAsset'])->name('add-new-asset');
 });
 // Auth
 Auth::routes();

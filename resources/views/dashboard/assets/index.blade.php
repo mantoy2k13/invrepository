@@ -39,7 +39,7 @@
                     <div class="col-sm-12">
                         <div class="card-box">
                             <div class="btn-group pull-right tbl-btn-options">
-                                <a href="javascript:;" class="btn btn-inverse waves-effect waves-light btn-sm"><i class="ti-plus"></i> Add Assets</a>
+                                <a href="{{ route('add-new-asset') }}" class="btn btn-inverse waves-effect waves-light btn-sm"><i class="ti-plus"></i> Add Assets</a>
                             </div>
                             <h4 class="m-t-0 header-title"><b>List of Assets</b></h4>
                             <p class="text-muted m-b-30 font-13">
