@@ -31,7 +31,7 @@ function loadAssets(url, filter){
             { 'data': 'asset_price' },
             { 'data': 'asset_quantity' },
             { 'data': 'created_at' },
-            { 'data': 'asset_img' },
+            { 'data': 'asset_img', orderable: false, searchable: false  },
             { 'data': 'action', orderable: false, searchable: false }
         ],
         'paging': true,
