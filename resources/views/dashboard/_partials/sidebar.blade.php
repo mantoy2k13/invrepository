@@ -7,10 +7,13 @@
                 <li class="text-muted menu-title">Navigation </li>
                 <li><a href="{{ route('dashboard') }}" class="waves-effect {{ request()->is('admin/dashboard') ? 'active' : '' }}"><i class="ti-map"></i> <span> Dashboard </span> </a></li>
                 <li class="has_sub">
-                    <a href="{{ route('assets') }}" class="waves-effect {{ (request()->is('admin/assets') || request()->is('admin/add-new-asset')) ? 'active' : '' }}"><i class="ti-stats-up"></i> <span> Assets </span> </a>
+                    <a href="{{ route('assets') }}" class="waves-effect {{ (request()->is('admin/assets') || request()->is('admin/add-new-asset') || request()->is('admin/edit-asset/*')) ? 'active' : '' }}"><i class="ti-stats-up"></i> <span> Assets </span> </a>
                     <ul class="list-unstyled">
                         <li class="{{ request()->is('admin/assets') ? 'active' : '' }}"><a href="{{ route('assets') }}">All Assets</a></li>
                         <li class="{{ request()->is('admin/add-new-asset') ? 'active' : '' }}"><a href="{{ route('asset.create') }}">Add New Asset</a></li>
+                        @if (request()->is('admin/edit-asset/*'))
+                        <li class="active"><a href="javascript:;">Editing Asset</a></li>
+                        @endif
                     </ul>
                 </li>
                 <li><a href="javascript:;" class="waves-effect"><i class="ti-user"></i> <span> Users </span> </a></li>
