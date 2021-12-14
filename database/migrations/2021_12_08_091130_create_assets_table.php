@@ -21,6 +21,8 @@ class CreateAssetsTable extends Migration
             $table->string('asset_price')->nullable();
             $table->string('asset_img')->nullable();
             $table->string('asset_video')->nullable();
+            $table->string('post_type')->default('publish')->comment('publish, draft');
+            $table->boolean('is_delete')->default(0)->comment('1 Yes, 0 No');
             $table->timestamps();
         });
     }

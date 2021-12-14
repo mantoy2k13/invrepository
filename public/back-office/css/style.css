@@ -335,6 +335,30 @@ span.invalid-feedback strong {
     color: #ff2929;
     font-weight: 100;
 }
+
+.tbl-menu .tbl-title {
+    color: #337ab7;
+    font-weight: 700;
+}
+.tbl-menu .tbl-title:hover {
+    color: #1d4c74;
+}
+.tbl-menu ul {
+    margin: 0;
+    list-style-type: none;
+    padding: 0;
+    display: none;
+}
+.tbl-menu ul li {
+    margin-right: 5px;
+}
+.tbl-menu ul li a {
+    font-size: 13px;
+}
+.table-hover > tbody > tr:hover .tbl-menu ul{
+    display: flex;
+}
+
 /* Upload Files Template */
 /* First Upload */
 .upload-files-wrapper {
@@ -413,3 +437,4 @@ span.invalid-feedback strong {
     flex-wrap: wrap;
     flex-direction: column;
 }
+/* End Uploads */
