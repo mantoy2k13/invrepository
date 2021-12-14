@@ -49,7 +49,7 @@ class AssetController extends Controller
                             <a href="javascript:;" class="tbl-title">'.($asset->asset_name).'</a>
                             <ul>
                                 <li><a href="'.route('asset.edit', $asset->id).'">Edit</a></li>
-                                <li><a href="javascript:;" class="text-danger">Delete</a></li>
+                                <li><a href="javascript:;" class="text-danger" onclick="deleteAsset('.$asset->id.', \''.$asset->asset_name.'\')">Delete</a></li>
                                 <li><a href="javascript:;">View</a></li>
                             </ul>
                         </div>
@@ -78,7 +78,7 @@ class AssetController extends Controller
                             <li><a href="javascript:;">View History</a></li>
                             <li class="divider"></li>
                             <li><a href="'.route('asset.edit', $asset->id).'">Edit</a></li>
-                            <li><a href="javascript:;">Delete</a></li>
+                            <li><a href="javascript:;" onclick="deleteAsset('.$asset->id.', \''.$asset->asset_name.'\')">Delete</a></li>
                         </ul>
                     </div>
                 ';
@@ -118,6 +118,11 @@ class AssetController extends Controller
             return response()->json(['code' => 200, 'status' => true, 'msg' => 'Asset saved successfully', 'data' => $data], 200);
         }
     }
+    
+    public function editAsset($id){
+        $asset = Asset::find($id);
+        return view('dashboard.assets.edit', compact('asset'));
+    }
 
     public function updateAsset(Request $request, $id){
         $rules = [
@@ -147,9 +152,11 @@ class AssetController extends Controller
         }
     }
 
-
-    public function editAsset($id){
-        $asset = Asset::find($id);
-        return view('dashboard.assets.edit', compact('asset'));
+    public function deleteAsset(Request $request){
+        // Update Product Info
+        $data            = Asset::find($request->id);
+        $data->is_delete = 1;
+        $data->save();
+        return response()->json(['code' => 200, 'status' => true, 'msg' => 'The asset was successfully moved to trash', 'data' => []], 200);
     }
 }

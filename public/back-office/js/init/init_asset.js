@@ -62,3 +62,30 @@ function loadAssets(url, filter){
         }
     });
 }
+
+function deleteAsset(id, name){
+    swal({
+        title: "Delete "+name+"?",
+        text: "This item will be move to trash.",
+        type: "warning",
+        showCancelButton: true,
+        showLoaderOnConfirm: true,
+        confirmButtonText: "Move to Trash",
+        closeOnConfirm: false,
+        confirmButtonColor: "#e11641"
+    }, ()=>{
+        $.ajax({
+            type: 'POST',
+            url: $('#delete_url').val(),
+            data: {id:id},
+            success:(res)=>{
+                swal('Moved to Trash', res.msg, 'success');
+                loadAssets($('#assets_view_url').val(), "");
+            },
+            error: function (res) {
+                swal('Error!', 'A problem occured. Please refresh your page and try again.', 'error');
+                console.log(res.responseJSON.message);
+            }
+        });
+    });
+}

@@ -1,3 +1,8 @@
+$.ajaxSetup({
+    headers: {
+        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+    }
+});
 jQuery(document).ready(function($) {
     $('.image-popup').magnificPopup({
         type: 'image',

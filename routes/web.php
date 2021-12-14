@@ -27,11 +27,15 @@ Route::prefix('/')->middleware(['auth'])->namespace('Dashboard')->group( functio
     Route::get('/admin/dashboard', [DashboardController::class, 'index'])->name('dashboard');
     /* Assets */
     Route::get('/admin/assets', [AssetController::class, 'index'])->name('assets');
+    Route::get('/admin/view-assets', [AssetController::class, 'assetLists'])->name('asset.view');
+    // Add Asset
     Route::get('/admin/add-new-asset', [AssetController::class, 'addAsset'])->name('asset.create');
     Route::post('/admin/store-asset', [AssetController::class, 'storeAsset'])->name('asset.store');
-    Route::get('/admin/view-assets', [AssetController::class, 'assetLists'])->name('asset.view');
+    // Update Asset
     Route::get('/admin/edit-asset/{id}', [AssetController::class, 'editAsset'])->name('asset.edit');
     Route::post('/admin/update-asset/{id}', [AssetController::class, 'updateAsset'])->name('asset.update');
+    // Delete Asset
+    Route::post('/admin/delete-asset/', [AssetController::class, 'deleteAsset'])->name('asset.delete');
 });
 // Auth
 Auth::routes();

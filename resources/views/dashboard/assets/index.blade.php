@@ -50,6 +50,9 @@
                                         <li><a href="javascript:;" onclick="loadAssets('{{ route('asset.view') }}', '?post_type=draft');">Drafts ({{ $get_total_asset_draft }})</a></li>
                                         <li><a href="javascript:;" onclick="loadAssets('{{ route('asset.view') }}', '?post_type=delete');">Trash ({{ $get_total_asset_trash }})</a></li>
                                     </ul>
+                                    {{-- Delete and View URL --}}
+                                    <input type="hidden" id="delete_url" value="{{ route('asset.delete') }}">
+                                    <input type="hidden" id="assets_view_url" value="{{ route('asset.view') }}">
                                 </div>
                                 <div class="btn-group">
                                     <a href="javascript:;" onclick="loadAssets('{{ route('asset.view') }}', '');" class="btn btn-info waves-effect waves-light btn-sm"><i class="ti-reload"></i> Reload</a>
