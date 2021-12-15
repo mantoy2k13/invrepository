@@ -1,3 +1,10 @@
+{{-- PHP Codes --}}
+@php
+    use App\Http\Controllers\Controller;
+    $function = new Controller();
+    $my_info = $function->get_my_info();
+@endphp
+
 <!-- Top Bar Start -->
 <div class="topbar">
     <!-- LOGO -->
@@ -27,11 +34,8 @@
             <ul class="nav navbar-nav navbar-right pull-right">
                 <li class="dropdown">
                     <a href="javascript:;" class="dropdown-toggle profile" data-toggle="dropdown" aria-expanded="true">
-                        @php
-                           $image = asset('back-office/images/default_image.png');
-                        @endphp
                         <div class="user-img">
-                            <img src="{{ $image }}" alt="user-img" class="profile-image" style="border:0;">
+                            <img src="{{ ($my_info->user_image) ? url('/').$my_info->user_image : asset('back-office/images/default_image.png') }}" alt="User Image">
                         </div>
                     </a>
                     <ul class="dropdown-menu">

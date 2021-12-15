@@ -6,6 +6,9 @@ use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Routing\Controller as BaseController;
+use App\Models\User;
+use DB;
+use Auth;
 
 class Controller extends BaseController
 {
@@ -30,5 +33,48 @@ class Controller extends BaseController
         }else{
             return $old_img;
         }
+    }
+
+    public function relative_date($time) {
+        $time    = strtotime($time);
+        $today   = strtotime(date('M j, Y'));
+        $hrs     = date("h:i A", $time);
+        $reldays = ($time - $today)/86400;
+    
+        if ($reldays >= 0 && $reldays < 1) {
+            return 'Today, '.$hrs;
+        } else if ($reldays >= 1 && $reldays < 2) {
+            return 'Tomorrow, '.$hrs;
+        } else if ($reldays >= -1 && $reldays < 0) {
+            return 'Yesterday, '.$hrs;
+        }
+            
+        if (abs($reldays) < 7) {
+            if ($reldays > 0) {
+                $reldays = floor($reldays);
+                return 'In ' . $reldays . ' day' . ($reldays != 1 ? 's' : '');
+            } else {
+                $reldays = abs(floor($reldays));
+                return $reldays . ' day' . ($reldays != 1 ? 's' : '') . ' ago';
+            }
+        }
+        
+        if (abs($reldays) < 182) {
+            return date('l, j F',$time ? $time : time());
+        } else {
+            return date('l, j F, Y',$time ? $time : time());
+        }
+    }
+
+    public function get_my_info(){
+        $user = DB::table('users')
+            ->leftJoin('personal_information', 'users.id', '=', 'personal_information.user_id')
+            ->where('users.id', Auth::user()->id)
+        ->first();
+        return $user;
+    }
+
+    public function get_my_role($role){
+        return ($role=='admin') ? 'Administrator' : (($role=='member') ? 'Member' : 'Guest');
     }
 }

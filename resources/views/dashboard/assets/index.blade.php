@@ -45,17 +45,17 @@
                                 <div class="btn-group">
                                     <button type="button" class="btn btn-default dropdown-toggle waves-effect waves-light btn-sm" data-toggle="dropdown" aria-expanded="true"><i class="ti-menu"></i> View Options</button>
                                     <ul class="dropdown-menu dropdown-menu-right" role="menu">
-                                        <li><a href="javascript:;" onclick="loadAssets('{{ route('asset.view') }}', '');">View All ({{ $get_total_assets }})</a></li>
-                                        <li><a href="javascript:;" onclick="loadAssets('{{ route('asset.view') }}', '?post_type=publish');">Published ({{ $get_total_asset_publish }})</a></li>
-                                        <li><a href="javascript:;" onclick="loadAssets('{{ route('asset.view') }}', '?post_type=draft');">Drafts ({{ $get_total_asset_draft }})</a></li>
-                                        <li><a href="javascript:;" onclick="loadAssets('{{ route('asset.view') }}', '?post_type=delete');">Trash ({{ $get_total_asset_trash }})</a></li>
+                                        <li><a href="javascript:;" onclick="loadAssets('{{ route('asset.lists') }}', '');">View All ({{ $get_total_assets }})</a></li>
+                                        <li><a href="javascript:;" onclick="loadAssets('{{ route('asset.lists') }}', '?post_type=publish');">Published ({{ $get_total_asset_publish }})</a></li>
+                                        <li><a href="javascript:;" onclick="loadAssets('{{ route('asset.lists') }}', '?post_type=draft');">Drafts ({{ $get_total_asset_draft }})</a></li>
+                                        <li><a href="javascript:;" onclick="loadAssets('{{ route('asset.lists') }}', '?post_type=delete');">Trash ({{ $get_total_asset_trash }})</a></li>
                                     </ul>
                                     {{-- Delete and View URL --}}
                                     <input type="hidden" id="delete_url" value="{{ route('asset.delete') }}">
-                                    <input type="hidden" id="assets_view_url" value="{{ route('asset.view') }}">
+                                    <input type="hidden" id="assets_view_url" value="{{ route('asset.lists') }}">
                                 </div>
                                 <div class="btn-group">
-                                    <a href="javascript:;" onclick="loadAssets('{{ route('asset.view') }}', '');" class="btn btn-info waves-effect waves-light btn-sm"><i class="ti-reload"></i> Reload</a>
+                                    <a href="javascript:;" onclick="loadAssets('{{ route('asset.lists') }}', '');" class="btn btn-info waves-effect waves-light btn-sm"><i class="ti-reload"></i> Reload</a>
                                 </div>
                             </div>
                             <h4 class="m-t-0 header-title"><b>List of Assets</b></h4>
@@ -93,6 +93,6 @@
 @push('scripts')
 <script src="{{ asset('back-office/js/init/init_asset.js') }}"></script>
 <script>
-    loadAssets("{{ route('asset.view') }}", "");
+    loadAssets("{{ route('asset.lists') }}", "");
 </script>
 @endpush

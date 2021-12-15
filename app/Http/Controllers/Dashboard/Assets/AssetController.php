@@ -46,11 +46,11 @@ class AssetController extends Controller
                 return '
                     <div class="d-flex">
                         <div class="tbl-menu">
-                            <a href="javascript:;" class="tbl-title">'.($asset->asset_name).'</a>
+                            <a href="'.route('asset.view', $asset->id).'" class="tbl-title">'.($asset->asset_name).'</a>
                             <ul>
                                 <li><a href="'.route('asset.edit', $asset->id).'">Edit</a></li>
                                 <li><a href="javascript:;" class="text-danger" onclick="deleteAsset('.$asset->id.', \''.$asset->asset_name.'\')">Delete</a></li>
-                                <li><a href="javascript:;">View</a></li>
+                                <li><a href="'.route('asset.view', $asset->id).'">View</a></li>
                             </ul>
                         </div>
                     </div>
@@ -150,6 +150,11 @@ class AssetController extends Controller
             $data->save();
             return response()->json(['code' => 200, 'status' => true, 'msg' => 'Asset saved successfully', 'data' => $data], 200);
         }
+    }
+
+    public function viewAsset($id){
+        $asset = Asset::find($id);
+        return view('dashboard.assets.view', compact('asset'));
     }
 
     public function deleteAsset(Request $request){

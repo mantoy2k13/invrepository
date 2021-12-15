@@ -89,3 +89,9 @@ function deleteAsset(id, name){
         });
     });
 }
+
+function watchVideo(url){
+	document.getElementById("video-content").innerHTML = '<iframe src="'+url+'?rel=0&autoplay=1&controls=1&showinfo=0&suggestion=0" frameborder="0" allowfullscreen></iframe>';
+	var element = document.getElementById("video-banner-text");
+  	element.classList.add("d-none");
+}
