@@ -5,6 +5,7 @@ use App\Http\Controllers\Front\FrontOfficeController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Dashboard\Dashboard\DashboardController;
 use App\Http\Controllers\Dashboard\Assets\AssetController;
+use App\Http\Controllers\Dashboard\User\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,7 +24,11 @@ Route::get('/', function() {
 });
 
 Route::prefix('/')->middleware(['auth'])->namespace('Dashboard')->group( function(){
-    /* Dashboard */
+    /*
+    |--------------------------------------------------------------------------
+    | Dashboard
+    |-------------------------------------------------------------------------- 
+    */
     Route::get('/admin/dashboard', [DashboardController::class, 'index'])->name('dashboard');
     /* Assets */
     Route::get('/admin/assets', [AssetController::class, 'index'])->name('assets');
@@ -38,6 +43,15 @@ Route::prefix('/')->middleware(['auth'])->namespace('Dashboard')->group( functio
     Route::post('/admin/delete-asset/', [AssetController::class, 'deleteAsset'])->name('asset.delete');
     // View Asset
     Route::get('/admin/view-asset/{id}', [AssetController::class, 'viewAsset'])->name('asset.view');
+
+    /*
+    |--------------------------------------------------------------------------
+    | Profile
+    |-------------------------------------------------------------------------- 
+    */
+    // My Profile
+    Route::get('/admin/my-profile', [UserController::class, 'myProfile'])->name('user.profile');
+    
 });
 // Auth
 Auth::routes();

@@ -80,7 +80,7 @@
                                         </div>
                                         <div class="form-group">
                                             <label for="video_banner">Featured Video Banner</label>
-                                            <input type="text" class="form-control" id="video_banner" name="video_banner" placeholder="https://www.youtube.com/embed/video-youtube-id">
+                                            <input type="url" class="form-control" id="video_banner" name="video_banner" placeholder="https://www.youtube.com/embed/video-youtube-id">
                                             <small>Copy the video embed URL. The URL format should be "https://www.youtube.com/embed/video-youtube-id".</small>
                                         </div>
                                         <div class="form-group">

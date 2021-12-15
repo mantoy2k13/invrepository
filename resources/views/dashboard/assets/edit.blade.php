@@ -71,7 +71,7 @@
                                         <div class="form-group">
                                             <div class="asset-image-upload">
                                                 <div class="uploaded-files-wrapper img-responsive">
-                                                    <img src="{{ url('/').$asset->asset_img }}" alt="{{ $asset->asset_name }}" >
+                                                    <img src="{{ ($asset->asset_img) ? url('/').$asset->asset_img : asset('back-office/images/default_image.png') }}" alt="{{ $asset->asset_name }}" >
                                                     <div class="uploaded-files-body"><i class="ti-export"></i> 
                                                         <p class="text-black">Click to Change Image</p>
                                                     </div>
@@ -82,7 +82,7 @@
                                         </div>
                                         <div class="form-group">
                                             <label for="video_banner">Featured Video Banner</label>
-                                            <input type="text" class="form-control" id="video_banner" name="video_banner" placeholder="https://www.youtube.com/embed/video-youtube-id" value="{{ $asset->asset_video }}">
+                                            <input type="url" class="form-control" id="video_banner" name="video_banner" placeholder="https://www.youtube.com/embed/video-youtube-id" value="{{ $asset->asset_video }}">
                                             <small>Copy the video embed URL. The URL format should be "https://www.youtube.com/embed/video-youtube-id".</small>
                                         </div>
                                         <div class="form-group">

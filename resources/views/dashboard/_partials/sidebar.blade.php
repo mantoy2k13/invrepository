@@ -19,8 +19,8 @@
                 <div class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">{{ $my_info->nickname }} <span class="caret"></span></a>
                     <ul class="dropdown-menu">
-                        <li><a href="javascript:void(0)"><i class="md md-face-unlock"></i> Profile<div class="ripple-wrapper"></div></a></li>
-                        <li><a href="javascript:void(0)"><i class="md md-settings"></i> Profile Settings</a></li>
+                        <li><a href="{{ route('user.profile') }}"><i class="md md-face-unlock"></i> Profile<div class="ripple-wrapper"></div></a></li>
+                        <li><a href="javascript:void(0)"><i class="md md-settings"></i> Settings</a></li>
                         <li><a href="javascript:void(0)"><i class="md md-settings-power"></i> Logout</a></li>
                     </ul>
                 </div>
@@ -47,7 +47,7 @@
                 </li>
                 <li><a href="javascript:;" class="waves-effect"><i class="ti-user"></i> <span> Users </span> </a></li>
                 <li><a href="javascript:;" class="waves-effect"><i class="ti-shopping-cart"></i> <span> Investments </span> </a></li>
-                <li><a href="javascript:;" class="waves-effect"><i class="ti-id-badge"></i> <span> Profile Settings</span> </a></li>
+                <li><a href="{{ route('user.profile') }}" class="waves-effect"><i class="ti-id-badge"></i> <span> Profile Settings</span> </a></li>
                 <li class="has_sub">
                     <a href="javascript:;" class="waves-effect"><i class="ti-settings"></i> <span> Settings </span> </a>
                     <ul class="list-unstyled">
