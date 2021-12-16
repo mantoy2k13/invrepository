@@ -22,27 +22,27 @@ use App\Http\Controllers\Dashboard\User\UserController;
 Route::get('/', function() {
     return redirect('/login');
 });
-
 Route::prefix('/')->middleware(['auth'])->namespace('Dashboard')->group( function(){
     /*
     |--------------------------------------------------------------------------
     | Dashboard
     |-------------------------------------------------------------------------- 
     */
-    Route::get('/admin/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+    Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
+    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
     /* Assets */
-    Route::get('/admin/assets', [AssetController::class, 'index'])->name('assets');
-    Route::get('/admin/view-assets', [AssetController::class, 'assetLists'])->name('asset.lists');
+    Route::get('/assets', [AssetController::class, 'index'])->name('assets');
+    Route::get('/view-assets', [AssetController::class, 'assetLists'])->name('asset.lists');
     // Add Asset
-    Route::get('/admin/add-new-asset', [AssetController::class, 'addAsset'])->name('asset.create');
-    Route::post('/admin/store-asset', [AssetController::class, 'storeAsset'])->name('asset.store');
+    Route::get('/add-new-asset', [AssetController::class, 'addAsset'])->name('asset.create');
+    Route::post('/store-asset', [AssetController::class, 'storeAsset'])->name('asset.store');
     // Update Asset
-    Route::get('/admin/edit-asset/{id}', [AssetController::class, 'editAsset'])->name('asset.edit');
-    Route::post('/admin/update-asset/{id}', [AssetController::class, 'updateAsset'])->name('asset.update');
+    Route::get('/edit-asset/{id}', [AssetController::class, 'editAsset'])->name('asset.edit');
+    Route::post('/update-asset/{id}', [AssetController::class, 'updateAsset'])->name('asset.update');
     // Delete Asset
-    Route::post('/admin/delete-asset/', [AssetController::class, 'deleteAsset'])->name('asset.delete');
+    Route::post('/delete-asset/', [AssetController::class, 'deleteAsset'])->name('asset.delete');
     // View Asset
-    Route::get('/admin/view-asset/{id}', [AssetController::class, 'viewAsset'])->name('asset.view');
+    Route::get('/view-asset/{id}', [AssetController::class, 'viewAsset'])->name('asset.view');
 
     /*
     |--------------------------------------------------------------------------
@@ -50,9 +50,9 @@ Route::prefix('/')->middleware(['auth'])->namespace('Dashboard')->group( functio
     |-------------------------------------------------------------------------- 
     */
     // My Profile
-    Route::get('/admin/my-profile', [UserController::class, 'myProfile'])->name('user.profile');
-    Route::post('/admin/update-profile', [UserController::class, 'updateProfile'])->name('user.update-profile');
-    Route::post('/admin/account-profile', [UserController::class, 'updateAccount'])->name('user.update-account');
+    Route::get('/my-profile', [UserController::class, 'myProfile'])->name('user.profile');
+    Route::post('/update-profile', [UserController::class, 'updateProfile'])->name('user.update-profile');
+    Route::post('/account-profile', [UserController::class, 'updateAccount'])->name('user.update-account');
     
 });
 // Auth

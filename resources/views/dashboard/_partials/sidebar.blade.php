@@ -32,23 +32,23 @@
         <div id="sidebar-menu">
             <ul>
                 <li class="text-muted menu-title">Navigation </li>
-                <li><a href="{{ route('dashboard') }}" class="waves-effect {{ request()->is('admin/dashboard') ? 'active' : '' }}"><i class="ti-map"></i> <span> Dashboard </span> </a></li>
+                <li><a href="{{ route('dashboard') }}" class="waves-effect {{ request()->is('dashboard') ? 'active' : '' }}"><i class="ti-map"></i> <span> Dashboard </span> </a></li>
                 <li class="has_sub">
-                    <a href="{{ route('assets') }}" class="waves-effect {{ (request()->is('admin/assets') || request()->is('admin/view-asset/*') || request()->is('admin/add-new-asset') || request()->is('admin/edit-asset/*')) ? 'active' : '' }}"><i class="ti-stats-up"></i> <span> Assets </span> </a>
+                    <a href="{{ route('assets') }}" class="waves-effect {{ (request()->is('assets') || request()->is('view-asset/*') || request()->is('add-new-asset') || request()->is('edit-asset/*')) ? 'active' : '' }}"><i class="ti-stats-up"></i> <span> Assets </span> </a>
                     <ul class="list-unstyled">
-                        <li class="{{ request()->is('admin/assets') ? 'active' : '' }}"><a href="{{ route('assets') }}">All Assets</a></li>
-                        <li class="{{ request()->is('admin/add-new-asset') ? 'active' : '' }}"><a href="{{ route('asset.create') }}">Add New Asset</a></li>
-                        @if (request()->is('admin/edit-asset/*'))
+                        <li class="{{ request()->is('assets') ? 'active' : '' }}"><a href="{{ route('assets') }}">All Assets</a></li>
+                        <li class="{{ request()->is('add-new-asset') ? 'active' : '' }}"><a href="{{ route('asset.create') }}">Add New Asset</a></li>
+                        @if (request()->is('edit-asset/*'))
                             <li class="active"><a href="javascript:;">Editing Asset</a></li>
                         @endif
-                        @if (request()->is('admin/view-asset/*'))
+                        @if (request()->is('view-asset/*'))
                             <li class="active"><a href="javascript:;">Viewing Asset</a></li>
                         @endif
                     </ul>
                 </li>
                 <li><a href="javascript:;" class="waves-effect"><i class="ti-user"></i> <span> Users </span> </a></li>
                 <li><a href="javascript:;" class="waves-effect"><i class="ti-shopping-cart"></i> <span> Investments </span> </a></li>
-                <li><a href="{{ route('user.profile') }}" class="waves-effect"><i class="ti-id-badge"></i> <span> Profile Settings</span> </a></li>
+                <li><a href="{{ route('user.profile') }}" class="waves-effect {{ request()->is('my-profile') ? 'active' : '' }}"><i class="ti-id-badge"></i> <span> Profile Settings</span> </a></li>
                 <li class="has_sub">
                     <a href="javascript:;" class="waves-effect"><i class="ti-settings"></i> <span> Settings </span> </a>
                     <ul class="list-unstyled">
