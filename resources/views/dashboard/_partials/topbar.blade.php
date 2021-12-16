@@ -40,7 +40,7 @@
                     </a>
                     <ul class="dropdown-menu">
                         <li>
-                            <a href="#"> <i class="ti-user m-r-5"></i> Profile Settings</a>
+                            <a href="{{ route('user.profile') }}"> <i class="ti-user m-r-5"></i> Profile Settings</a>
                         </li>
                         <li>
                             <a class="dropdown-item" href="javascript:;"

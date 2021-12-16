@@ -503,3 +503,13 @@ input.parsley-success, select.parsley-success, textarea.parsley-success {
     flex-direction: column;
 }
 /* End Uploads */
+
+.tabs li.tab a.active {
+    color: #0090c7 !important;
+}
+.tabs .indicator {
+    background-color: #0090ca;
+}
+.nav.nav-tabs > li > a:hover, .nav.tabs-vertical > li > a:hover {
+    color: #0090c7 !important;
+}

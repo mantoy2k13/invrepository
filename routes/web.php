@@ -51,6 +51,8 @@ Route::prefix('/')->middleware(['auth'])->namespace('Dashboard')->group( functio
     */
     // My Profile
     Route::get('/admin/my-profile', [UserController::class, 'myProfile'])->name('user.profile');
+    Route::post('/admin/update-profile', [UserController::class, 'updateProfile'])->name('user.update-profile');
+    Route::post('/admin/account-profile', [UserController::class, 'updateAccount'])->name('user.update-account');
     
 });
 // Auth

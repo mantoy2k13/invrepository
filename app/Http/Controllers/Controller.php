@@ -77,4 +77,26 @@ class Controller extends BaseController
     public function get_my_role($role){
         return ($role=='admin') ? 'Administrator' : (($role=='member') ? 'Member' : 'Guest');
     }
+    public function display_name($type){
+        $my_info = $this->get_my_info();
+        switch ($type) {
+            case 1: // Nickname
+                return $my_info->nickname;
+                break;
+            case 2: // First Name
+                return $my_info->first_name;
+                break;
+            case 3: // Last Name
+                return $my_info->last_name;
+                break;
+            case 4: // First & Last Name
+                return $my_info->first_name.' '.$my_info->last_name;
+                break;
+            case 5: // Email
+                return $my_info->email;
+                break;
+            default: // Username
+                return $my_info->username;
+        }
+    }
 }

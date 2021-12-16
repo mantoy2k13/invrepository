@@ -1,9 +1,10 @@
 {{-- PHP Codes --}}
 @php
     use App\Http\Controllers\Controller;
-    $function = new Controller();
-    $my_info  = $function->get_my_info();
-    $role     = $function->get_my_role($my_info->role);
+    $function     = new Controller();
+    $my_info      = $function->get_my_info();
+    $display_name = $function->display_name($my_info->display_name);
+    $role         = $function->get_my_role($my_info->role);
 @endphp
 
 <!-- ========== Left Sidebar Start ========== -->
@@ -17,7 +18,7 @@
             </div>
             <div class="user-info">
                 <div class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">{{ $my_info->nickname }} <span class="caret"></span></a>
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">{{ $display_name }} <span class="caret"></span></a>
                     <ul class="dropdown-menu">
                         <li><a href="{{ route('user.profile') }}"><i class="md md-face-unlock"></i> Profile<div class="ripple-wrapper"></div></a></li>
                         <li><a href="javascript:void(0)"><i class="md md-settings"></i> Settings</a></li>
