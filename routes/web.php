@@ -6,6 +6,7 @@ use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Dashboard\Dashboard\DashboardController;
 use App\Http\Controllers\Dashboard\Assets\AssetController;
 use App\Http\Controllers\Dashboard\User\UserController;
+use App\Http\Controllers\Dashboard\Settings\SettingsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -43,7 +44,7 @@ Route::prefix('/')->middleware(['auth'])->namespace('Dashboard')->group( functio
     Route::post('/delete-asset/', [AssetController::class, 'deleteAsset'])->name('asset.delete');
     // View Asset
     Route::get('/view-asset/{id}', [AssetController::class, 'viewAsset'])->name('asset.view');
-
+    
     /*
     |--------------------------------------------------------------------------
     | Profile
@@ -53,7 +54,8 @@ Route::prefix('/')->middleware(['auth'])->namespace('Dashboard')->group( functio
     Route::get('/my-profile', [UserController::class, 'myProfile'])->name('user.profile');
     Route::post('/update-profile', [UserController::class, 'updateProfile'])->name('user.update-profile');
     Route::post('/account-profile', [UserController::class, 'updateAccount'])->name('user.update-account');
-    
+    Route::get('/payment-settings',[SettingsController::class, 'payment'])-> name('payment-settings');
+    Route::get('/api-settings',[SettingsController::class, 'api'])-> name('api-settings');
 });
 // Auth
 Auth::routes();
