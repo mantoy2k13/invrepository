@@ -18,11 +18,13 @@ class Guest
     public function handle(Request $request, Closure $next)
     {
         if (Auth::check() && Auth::user()->role == 'guest') {
-            return $next($request);
+            return redirect('/guest');
         } elseif (Auth::check() && Auth::user()->role == 'member') {
             return redirect('/member');
-        } else {
+        } elseif (Auth::check() && Auth::user()->role == 'admin') {
             return redirect('/admin');
+        } else {
+            return $next($request);
         }
     }
 }
