@@ -27,7 +27,7 @@ Route::prefix('/')->middleware(['auth'])->namespace('Dashboard')->group( functio
     /*
     |--------------------------------------------------------------------------
     | Dashboard
-    |-------------------------------------------------------------------------- 
+    |--------------------------------------------------------------------------
     */
     Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
@@ -48,7 +48,7 @@ Route::prefix('/')->middleware(['auth'])->namespace('Dashboard')->group( functio
     /*
     |--------------------------------------------------------------------------
     | Profile
-    |-------------------------------------------------------------------------- 
+    |--------------------------------------------------------------------------
     */
     // My Profile
     Route::get('/my-profile', [UserController::class, 'myProfile'])->name('user.profile');

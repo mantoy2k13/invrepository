@@ -118,7 +118,7 @@ class AssetController extends Controller
             return response()->json(['code' => 200, 'status' => true, 'msg' => 'Asset saved successfully', 'data' => $data], 200);
         }
     }
-    
+
     public function editAsset($id){
         $asset = Asset::find($id);
         return view('dashboard.assets.edit', compact('asset'));
