@@ -16,8 +16,8 @@
                     <div class="col-lg-3 col-sm-6">
                         <div class="widget-panel widget-style-2 bg-white">
                             <i class="md md-attach-money text-primary"></i>
-                            <h2 class="m-0 text-dark counter font-600">50568</h2>
-                            <div class="text-muted m-t-5">Total Revenue</div>
+                            <h2 class="m-0 text-dark counter font-600">{{ $get_total_assets }}</h2>
+                            <div class="text-muted m-t-5">Total Assets</div>
                         </div>
                     </div>
                     <div class="col-lg-3 col-sm-6">
@@ -37,7 +37,7 @@
                     <div class="col-lg-3 col-sm-6">
                         <div class="widget-panel widget-style-2 bg-white">
                             <i class="md md-account-child text-custom"></i>
-                            <h2 class="m-0 text-dark counter font-600">8564</h2>
+                            <h2 class="m-0 text-dark counter font-600">{{ $get_total_users }}</h2>
                             <div class="text-muted m-t-5">Users</div>
                         </div>
                     </div>
