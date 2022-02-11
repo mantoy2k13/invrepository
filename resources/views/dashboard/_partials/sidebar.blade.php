@@ -69,11 +69,10 @@ $role = $function->get_my_role($my_info->role);
                     </li>
                 @endif
                 <li class="has_sub">
-                    <a href="javascript:;" class="waves-effect"><i class="ti-settings"></i> <span> Settings </span>
-                    </a>
+                    <a href="{{ route('payment-settings') }}" class="waves-effect {{ (request()->is('payment-settings')  || request()->is('api-settings')) ? 'active' : '' }}" class="waves-effect"><i class="ti-settings"></i> <span> Settings </span> </a>
                     <ul class="list-unstyled">
-                        <li><a href="javascript:;">Payment Settings</a></li>
-                        <li><a href="javascript:;">API Settings</a></li>
+                        <li class="{{ request()->is('payment-settings') ? 'active' : '' }}"><a href="{{ route('payment-settings') }}">Payment Settings</a></li>
+                        <li class="{{ request()->is('api-settings') ? 'active' : '' }}"><a href="{{ route('api-settings') }}">API Settings</a></li>
                     </ul>
                 </li>
             </ul>
