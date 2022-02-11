@@ -28,7 +28,7 @@ Route::prefix('/')->middleware(['auth'])->namespace('Dashboard')->group( functio
     /*
     |--------------------------------------------------------------------------
     | Dashboard
-    |-------------------------------------------------------------------------- 
+    |--------------------------------------------------------------------------
     */
     Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
@@ -49,7 +49,7 @@ Route::prefix('/')->middleware(['auth'])->namespace('Dashboard')->group( functio
     /*
     |--------------------------------------------------------------------------
     | Profile
-    |-------------------------------------------------------------------------- 
+    |--------------------------------------------------------------------------
     */
     // My Profile
     Route::get('/my-profile', [UserController::class, 'myProfile'])->name('user.profile');
@@ -59,6 +59,15 @@ Route::prefix('/')->middleware(['auth'])->namespace('Dashboard')->group( functio
     Route::get('/api-settings',[SettingsController::class, 'api'])-> name('api-settings');
     Route::get('/investment',[InvestmentController::class, 'investments'])-> name('investment');
     Route::post('/store-investment', [AssetController::class, 'storeInvestment'])->name('investment.store');
+    /*
+    |--------------------------------------------------------------------------
+    | Users
+    |--------------------------------------------------------------------------
+    */
+    Route::get('/all-users', [UserController::class, 'viewUser'])->name('users.all');
+    Route::get('/view-users', [UserController::class, 'userLists'])->name('users.view');
+    Route::get('/edit-user/{id}', [UserController::class, 'editUser'])->name('edit.user');
+    Route::post('/update-user', [UserController::class, 'updateUser'])->name('update.user');
 });
 // Auth
 Auth::routes();
