@@ -512,4 +512,70 @@ input.parsley-success, select.parsley-success, textarea.parsley-success {
 }
 .nav.nav-tabs > li > a:hover, .nav.tabs-vertical > li > a:hover {
     color: #0090c7 !important;
+
 }
+
+/* for adding creditcard/debit card UI */
+.head-payment {
+    display: block;
+    font-size: 2em;
+    margin-block-start: 0.67em;
+    margin-block-end: 0.67em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
+}
+.container-payment {
+    
+        width: auto;
+        border: 1px solid;
+        display: flex;
+    flex-direction: column;
+    padding: 40px;
+}
+.container-payment h1 {
+    text-align: center;
+}
+.first-row {
+    display: flex;
+}
+.owner {
+    width: 100%;
+    margin-right: 40px;
+}
+.input-field {
+    border: 1px solid #999;
+}
+.input-field input {
+    width: 100%;
+    border: none;
+    outline: none;
+    padding: 10px;
+}
+.selection-payment {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.third-row{
+    margin-top: 10px;
+}
+.selection-payment select {
+    padding: 10px 20px;
+}
+.cards img {
+    width: 100px;
+}
+.confirm-payment{
+    background-color: blueviolet;
+    color: white;
+    text-align: center;
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 10px;
+    font-size: 18px;
+    transition: 0.5s;
+    margin-top: 30px;
+}
+ 
+                       

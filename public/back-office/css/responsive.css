@@ -275,3 +275,19 @@
         width: 100%;
     }
 }
+@media only screen and (max-width: 425px) {
+    .first-row {
+        flex-direction: column;
+    }
+    .cvv{
+        width: 50%;
+
+    }
+    .selection-payment {
+        flex-direction: column;
+    }
+    .cards{
+        margin-top: 10px;
+    }
+    
+}

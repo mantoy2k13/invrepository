@@ -22,7 +22,7 @@ class Guest
         } elseif (Auth::check() && Auth::user()->role == 'member') {
             return redirect('/member');
         } else {
-            return redirect('/admin');
+            return $next($request);
         }
     }
 }

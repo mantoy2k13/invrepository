@@ -7,6 +7,7 @@ use App\Http\Controllers\Dashboard\Dashboard\DashboardController;
 use App\Http\Controllers\Dashboard\Assets\AssetController;
 use App\Http\Controllers\Dashboard\User\UserController;
 use App\Http\Controllers\Dashboard\Settings\SettingsController;
+use App\Http\Controllers\Dashboard\Investments\InvestmentController;
 
 /*
 |--------------------------------------------------------------------------
@@ -56,6 +57,8 @@ Route::prefix('/')->middleware(['auth'])->namespace('Dashboard')->group( functio
     Route::post('/account-profile', [UserController::class, 'updateAccount'])->name('user.update-account');
     Route::get('/payment-settings',[SettingsController::class, 'payment'])-> name('payment-settings');
     Route::get('/api-settings',[SettingsController::class, 'api'])-> name('api-settings');
+    Route::get('/investment',[InvestmentController::class, 'investments'])-> name('investment');
+    Route::post('/store-investment', [AssetController::class, 'storeInvestment'])->name('investment.store');
 });
 // Auth
 Auth::routes();
