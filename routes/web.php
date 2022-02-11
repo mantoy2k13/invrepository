@@ -55,10 +55,8 @@ Route::prefix('/')->middleware(['auth'])->namespace('Dashboard')->group( functio
     Route::get('/my-profile', [UserController::class, 'myProfile'])->name('user.profile');
     Route::post('/update-profile', [UserController::class, 'updateProfile'])->name('user.update-profile');
     Route::post('/account-profile', [UserController::class, 'updateAccount'])->name('user.update-account');
-    Route::get('/payment-settings',[SettingsController::class, 'payment'])-> name('payment-settings');
-    Route::get('/api-settings',[SettingsController::class, 'api'])-> name('api-settings');
-    Route::get('/investment',[InvestmentController::class, 'investments'])-> name('investment');
-    Route::post('/store-investment', [AssetController::class, 'storeInvestment'])->name('investment.store');
+   
+   
     /*
     |--------------------------------------------------------------------------
     | Users
@@ -68,6 +66,23 @@ Route::prefix('/')->middleware(['auth'])->namespace('Dashboard')->group( functio
     Route::get('/view-users', [UserController::class, 'userLists'])->name('users.view');
     Route::get('/edit-user/{id}', [UserController::class, 'editUser'])->name('edit.user');
     Route::post('/update-user', [UserController::class, 'updateUser'])->name('update.user');
+
+    /*
+    |--------------------------------------------------------------------------
+    | Settings
+    |--------------------------------------------------------------------------
+    */
+    Route::get('/payment-settings',[SettingsController::class, 'payment'])-> name('payment-settings');
+    Route::get('/api-settings',[SettingsController::class, 'api'])-> name('api-settings');
+    /*
+    |--------------------------------------------------------------------------
+    | Investments
+    |--------------------------------------------------------------------------
+    */
+    //Route::get('/add-new-investment', [InvestmentController::class, 'addInvestment'])->name('investment.create');
+    Route::get('/investment',[InvestmentController::class, 'investments'])-> name('investment');
+    Route::post('/store-investment', [InvestmentController::class, 'storeInvestment'])->name('investment.store');
+
 });
 // Auth
 Auth::routes();
