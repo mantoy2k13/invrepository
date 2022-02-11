@@ -62,7 +62,6 @@ Route::prefix('/')->middleware(['auth'])->namespace('Dashboard')->group( functio
     Route::get('/view-users', [UserController::class, 'userLists'])->name('users.view');
     Route::get('/edit-user/{id}', [UserController::class, 'editUser'])->name('edit.user');
     Route::post('/update-user', [UserController::class, 'updateUser'])->name('update.user');
-
 });
 // Auth
 Auth::routes();
