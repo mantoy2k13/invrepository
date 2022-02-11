@@ -55,13 +55,19 @@ $role = $function->get_my_role($my_info->role);
                         @endif
                     </ul>
                 </li>
-                <li><a href="{{ route('users.all') }}" class="waves-effect"><i class="ti-user"></i> <span>
-                            Users </span> </a></li>
+                @if ($role == 'Administrator')
+                    <li><a href="{{ route('users.all') }}" class="waves-effect"><i class="ti-user"></i>
+                            <span>
+                                Users </span> </a></li>
+                @endif
                 <li><a href="javascript:;" class="waves-effect"><i class="ti-shopping-cart"></i> <span> Investments
                         </span> </a></li>
-                <li><a href="{{ route('user.profile') }}"
-                        class="waves-effect {{ request()->is('my-profile') ? 'active' : '' }}"><i
-                            class="ti-id-badge"></i> <span> Profile Settings</span> </a></li>
+                @if ($role == 'Administrator')
+                    <li><a href="{{ route('user.profile') }}"
+                            class="waves-effect {{ request()->is('my-profile') ? 'active' : '' }}"><i
+                                class="ti-id-badge"></i> <span> Profile Settings</span> </a>
+                    </li>
+                @endif
                 <li class="has_sub">
                     <a href="{{ route('payment-settings') }}" class="waves-effect {{ (request()->is('payment-settings')  || request()->is('api-settings')) ? 'active' : '' }}" class="waves-effect"><i class="ti-settings"></i> <span> Settings </span> </a>
                     <ul class="list-unstyled">

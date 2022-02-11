@@ -107,13 +107,14 @@ class UserController extends Controller
                 return $image;
             })
             ->addColumn('action', function($asset){
-                $button = '
+                    $button = '
                     <div class="btn-group">
                         <button type="button" class="btn btn-default dropdown-toggle waves-effect waves-light btn-sm" data-toggle="dropdown" aria-expanded="true"><i class="ti-menu"></i> Options</button>
                         <ul class="dropdown-menu dropdown-menu-right" role="menu">
                             <li><a href="javascript:;">View Investments</a></li>
                             <li><a href="javascript:;">View History</a></li>
                             <li class="divider"></li>
+
                             <li><a href="'.route('edit.user', $asset->id).'"  >Update User</a></li>
                         </ul>
                     </div>
@@ -128,11 +129,12 @@ class UserController extends Controller
         ->leftJoin('personal_information', 'users.id', '=', 'personal_information.user_id')
         ->where('users.id', '=', $id)
         ->first();
-
-        return view('dashboard.users.edit', compact('user'));
+        $user_id = $id;
+        return view('dashboard.users.edit', compact('user', 'user_id'));
     }
-    public function updateUser(Request $request, $id){
-        dd($id);
+    public function updateUser(Request $request){
+        // $user_id = $request->input('user_id');
+        $id = $request->input('user_id');
         $rules = [
             'first_name'     => 'required',
             'last_name'      => 'required',
@@ -145,7 +147,6 @@ class UserController extends Controller
             return response()->json(['code' => 200, 'status' => false, 'msg' => $errorString, 'data' => null], 200);
         }else{
             $user                   = PersonalInformation::find($id);
-            $user->id               = $id;
             $user->first_name       = $request->input('first_name');
             $user->last_name        = $request->input('last_name');
             $user->middle_name      = $request->input('middle_name');

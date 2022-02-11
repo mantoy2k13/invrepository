@@ -14,7 +14,7 @@
                                 <a href="javascript:;">Edit User </a>
                             </li>
                             <li class="active">
-                                Update User
+                                Update User {{ $user_id }}
                             </li>
                         </ol>
                     </div>
@@ -40,7 +40,7 @@
                             <div class="tab-pane active" id="profile-update">
                                 {{-- Edit Profile --}}
                                 <form action="{{ route('update.user') }}" data-parsley-validate method="POST"
-                                    id="updateProfileForm">
+                                    id="updateUserForm">
                                     <h4 class="m-t-0 header-title"><b>Edit Profile</b></h4>
                                     <p class="text-muted m-b-30 font-13">
                                         Fill up all the required fields below.
@@ -130,11 +130,12 @@
                                                     placeholder="Tell us about yourself...">{!! $user->bio !!}</textarea>
                                             </div>
                                         </div>
+                                        <input type="hidden" name="user_id" value="{{ $user->id }}">
                                         <div class="col-md-12">
                                             <div class="form-group">
                                                 <button class="btn btn-inverse has-spinner" type="button"
-                                                    onclick="updateProfileAccount(this, 'updateProfileForm', 'prof-err-msg')">Update
-                                                    Profile</button>
+                                                    onclick="updateUser(this, 'updateUserForm', 'prof-err-msg')">Update
+                                                    User</button>
                                             </div>
                                         </div>
                                     </div>
@@ -225,5 +226,6 @@
 @endsection
 
 @push('scripts')
+    <script src="{{ asset('back-office/js/init/init_all_users.js') }}"></script>
     <script src="{{ asset('back-office/js/init/init_users.js') }}"></script>
 @endpush

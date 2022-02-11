@@ -1,4 +1,5 @@
 function updateUser(e, formNameId, errDiv){
+
 	$('#'+formNameId).parsley().validate();
     if($('#'+formNameId).parsley().isValid()) {
         var formUrl = $('#'+formNameId).attr('action');
@@ -18,7 +19,7 @@ function updateUser(e, formNameId, errDiv){
                         '</div>'
                     );
                 }else{
-                    if(formNameId=='updateProfileForm'){
+                    if(formNameId=='updateUserForm'){
                         $('#'+errDiv).html('');
                         toastr.success(res.msg);
                         location.reload();
@@ -38,6 +39,8 @@ function updateUser(e, formNameId, errDiv){
         });
     }
 }
+
+
 function loadViewUser(url, filter){
     let table = $('#viewUserTable').DataTable({
         'ajax': url + filter,
