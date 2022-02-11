@@ -107,13 +107,14 @@ class UserController extends Controller
                 return $image;
             })
             ->addColumn('action', function($asset){
-                $button = '
+                    $button = '
                     <div class="btn-group">
                         <button type="button" class="btn btn-default dropdown-toggle waves-effect waves-light btn-sm" data-toggle="dropdown" aria-expanded="true"><i class="ti-menu"></i> Options</button>
                         <ul class="dropdown-menu dropdown-menu-right" role="menu">
                             <li><a href="javascript:;">View Investments</a></li>
                             <li><a href="javascript:;">View History</a></li>
                             <li class="divider"></li>
+
                             <li><a href="'.route('edit.user', $asset->id).'"  >Update User</a></li>
                         </ul>
                     </div>
