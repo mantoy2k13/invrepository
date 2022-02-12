@@ -79,9 +79,9 @@ Route::prefix('/')->middleware(['auth'])->namespace('Dashboard')->group( functio
     | Investments
     |--------------------------------------------------------------------------
     */
-    //Route::get('/add-new-investment', [InvestmentController::class, 'addInvestment'])->name('investment.create');
-    Route::get('/investment',[InvestmentController::class, 'investments'])-> name('investment');
     Route::post('/store-investment', [InvestmentController::class, 'storeInvestment'])->name('investment.store');
+    Route::get('/investments', [InvestmentController::class, 'investments'])->name('admin.investments');
+    Route::get('/my-investments', [InvestmentController::class, 'myInvestments'])->name('user.my-investments');
 
 });
 // Auth

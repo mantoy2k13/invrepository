@@ -50,3 +50,14 @@ function previewImage(e, parent, name){
         toastr.error('Image should less than or equal to 3 MB or 3000kb');
     }
 }
+
+var validNumber = new RegExp(/^\d*\.?\d*$/);
+var lastValid = "";
+
+function validateNumber(elem) {
+    if (validNumber.test(elem.value)) {
+        lastValid = elem.value;
+    } else {
+        elem.value = lastValid;
+    }
+}
