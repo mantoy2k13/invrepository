@@ -74,6 +74,7 @@
                                         <th>UserName</th>
                                         <th>Email</th>
                                         <th>Date Created</th>
+                                        <th>User Type</th>
                                         <th>Image</th>
                                         <th>Action</th>
                                     </tr>

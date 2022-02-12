@@ -48,7 +48,8 @@ function loadViewUser(url, filter){
             { 'data': 'username' },
             { 'data': 'email' },
             { 'data': 'created_at' },
-            { 'data': 'asset_img', orderable: false, searchable: false  },
+            { 'data': 'user_type' },
+            { 'data': 'user_image', orderable: false, searchable: false  },
             { 'data': 'action', orderable: false, searchable: false }
         ],
         'paging': true,
@@ -61,7 +62,8 @@ function loadViewUser(url, filter){
         'info': true,
         'autoWidth': false,
         "columnDefs": [
-            { "className": 'text-center', "targets": 3 }
+            { "className": 'text-center', "targets": 3 },
+            { "className": 'text-center', "targets": 4 }
         ],
         fnDrawCallback: function() {
             $('.image-popup').magnificPopup({

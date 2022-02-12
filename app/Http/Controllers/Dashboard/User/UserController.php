@@ -87,22 +87,37 @@ class UserController extends Controller
     public function userLists(Request $request)
     {
         // All Products
-        $data = User::all();
+        $data = DB::table('users')
+        ->select(
+            'users.id as id',
+            'users.username as username',
+            'users.email as email',
+            'users.created_at as created_at',
+            'users.role as role',
+            'personal_information.user_image as user_image'
+        )
+        ->leftJoin('personal_information', 'users.id', '=', 'personal_information.user_id')
+        ->where('users.role', '!=', 'admin')
+        ->get();
+
         // Return Datatables
         return Datatables::of($data)
             ->addIndexColumn()
             ->addColumn('username', function($assets){
-                return $assets->username;
+                return ucfirst($assets->username);
             })
             ->addColumn('email', function($assets){
-                return $assets->email;
+                return ucfirst($assets->email);
             })
             ->addColumn('created_at', function($asset){
 
                 return date('Y-m-d h:i A', strtotime($asset->created_at));
             })
-            ->addColumn('asset_img', function($asset){
-                $imgUrl = ($asset->asset_img) ? $asset->asset_img : asset('storage/uploads/assets/img_61fdc4855f55b.png');
+            ->addColumn('user_type', function($asset){
+                return ucfirst($asset->role);
+            })
+            ->addColumn('user_image', function($asset){
+                $imgUrl = ($asset->user_image) ? $asset->user_image : asset('storage/uploads/assets/img_61fdc4855f55b.png');
                 $image = '<a href="'.$imgUrl.'" class="image-popup"  ><div class="tbl-img"><img src="'.$imgUrl.'" alt="Asset Image"></div></a>';
                 return $image;
             })
@@ -125,6 +140,7 @@ class UserController extends Controller
 
     }
     public function editUser(Request $request, $id){
+
         $user = DB::table('users')
         ->leftJoin('personal_information', 'users.id', '=', 'personal_information.user_id')
         ->where('users.id', '=', $id)
