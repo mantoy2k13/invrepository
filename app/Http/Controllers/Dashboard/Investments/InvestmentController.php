@@ -17,12 +17,17 @@ use DB;
 
 class InvestmentController extends Controller
 {
+    // Admin
     public function investments(){
         // $user = DB::table('users')
         //     ->leftJoin('personal_information', 'users.id', '=', 'personal_information.user_id')
         //     ->where('users.id', Auth::user()->id)
         // ->first();
         return view('dashboard.investments.investment');
+    }
+    // Members
+    public function myInvestments(){
+        return view('dashboard.investments.my-investment');
     }
 
     public function storeInvestment(Request $request){

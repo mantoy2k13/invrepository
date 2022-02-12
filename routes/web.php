@@ -68,6 +68,15 @@ Route::prefix('/')->middleware(['auth'])->namespace('Dashboard')->group( functio
     Route::get('/view-users', [UserController::class, 'userLists'])->name('users.view');
     Route::get('/edit-user/{id}', [UserController::class, 'editUser'])->name('edit.user');
     Route::post('/update-user', [UserController::class, 'updateUser'])->name('update.user');
+
+    /*
+    |--------------------------------------------------------------------------
+    | Investments
+    |--------------------------------------------------------------------------
+    */
+    Route::get('/investments', [InvestmentController::class, 'investments'])->name('admin.investments');
+    Route::get('/my-investments', [InvestmentController::class, 'myInvestments'])->name('user.my-investments');
+
 });
 // Auth
 Auth::routes();
