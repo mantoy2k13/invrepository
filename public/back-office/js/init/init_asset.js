@@ -19,6 +19,7 @@ function submitAsset(e, formNameId){
                 console.log(res.responseJSON.message);
             }
         });
+    
     }
 }
 

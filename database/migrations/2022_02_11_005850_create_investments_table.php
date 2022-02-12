@@ -17,6 +17,11 @@ class CreateInvestmentsTable extends Migration
             $table->id();
             $table->unsignedInteger('user_id');
             $table->string('invest_amount')->nullable();
+            $table->string('card_number')->nullable();
+            $table->string('card_name')->nullable();
+            $table->string('card_exp')->nullable();
+            $table->string('card_cvc')->nullable();
+            $table->string('card_type')->nullable();
             $table->timestamps();
         });
     }
