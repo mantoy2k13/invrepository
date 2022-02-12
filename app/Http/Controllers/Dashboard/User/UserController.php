@@ -77,11 +77,12 @@ class UserController extends Controller
     }
 
     public function viewUser(Request $request){
-        $get_total_asset_value = DB::table('assets')->where('post_type', 'publish')->where('is_delete', 0)->sum('asset_price');
+        $total_members = DB::table('users')->where('users.role', '=','member')->count();
+        $total_guests = DB::table('users')->where('users.role', '=','guest')->count();
         $get_total_assets = DB::table('assets')->where('is_delete', 0)->count();
         $get_total_asset_publish = DB::table('assets')->where('post_type', 'publish')->where('is_delete', 0)->count();
         $view_all_user = User::all();
-        return view('dashboard.users.index', compact('get_total_asset_value', 'get_total_assets', 'get_total_asset_publish','view_all_user'));
+        return view('dashboard.users.index', compact('total_members', 'total_guests', 'view_all_user'));
     }
 
     public function userLists(Request $request)

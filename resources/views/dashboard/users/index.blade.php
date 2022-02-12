@@ -13,27 +13,21 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-lg-4 col-sm-6">
+                    <div class="col-lg-6 col-sm-8">
                         <div class="widget-panel widget-style-2 bg-white">
-                            <i class="md md-attach-money text-primary"></i>
-                            <h2 class="m-0 text-dark counter font-600">{{ $get_total_asset_value }}</h2>
-                            <div class="text-muted m-t-5">Total Asset Value</div>
+                            <i class="md md-group text-primary"></i>
+                            <h2 class="m-0 text-dark counter font-600">{{ $total_members }}</h2>
+                            <div class="text-muted m-t-5">Total Members </div>
                         </div>
                     </div>
-                    <div class="col-lg-4 col-sm-6">
+                    <div class="col-lg-6 col-sm-8">
                         <div class="widget-panel widget-style-2 bg-white">
-                            <i class="md md-add-shopping-cart text-pink"></i>
-                            <h2 class="m-0 text-dark counter font-600">0</h2>
-                            <div class="text-muted m-t-5">Sales</div>
+                            <i class="fa fa-user text-pink"></i>
+                            <h2 class="m-0 text-dark counter font-600">{{ $total_guests }}</h2>
+                            <div class="text-muted m-t-5">Total Guests</div>
                         </div>
                     </div>
-                    <div class="col-lg-4 col-sm-6">
-                        <div class="widget-panel widget-style-2 bg-white">
-                            <i class="md md-store-mall-directory text-info"></i>
-                            <h2 class="m-0 text-dark counter font-600">{{ $get_total_assets }}</h2>
-                            <div class="text-muted m-t-5">Total Assets</div>
-                        </div>
-                    </div>
+
                 </div>
                 <div class="row">
                     <div class="col-sm-12">
@@ -48,10 +42,16 @@
                                     <ul class="dropdown-menu dropdown-menu-right" role="menu">
                                         <li><a href="javascript:;"
                                                 onclick="loadAssets('{{ route('asset.lists') }}', '');">View All
-                                                ({{ $get_total_assets }})</a></li>
+                                                ({{ count($view_all_user) }})
+                                            </a></li>
                                         <li><a href="javascript:;"
-                                                onclick="loadAssets('{{ route('asset.lists') }}', '?post_type=publish');">Published
-                                                ({{ $get_total_asset_publish }})</a></li>
+                                                onclick="loadAssets('{{ route('asset.lists') }}', '');">View Guests
+                                                ({{ $total_guests }})
+                                            </a></li>
+                                        <li><a href="javascript:;"
+                                                onclick="loadAssets('{{ route('asset.lists') }}', '?post_type=publish');">View
+                                                Members ({{ $total_members }})
+                                            </a></li>
 
                                     </ul>
                                     {{-- Delete and View URL --}}

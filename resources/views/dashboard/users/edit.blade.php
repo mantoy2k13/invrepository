@@ -14,7 +14,7 @@
                                 <a href="javascript:;">Edit User </a>
                             </li>
                             <li class="active">
-                                Update User {{ $user_id }}
+                                Editing {{ ucfirst($user->first_name) }}
                             </li>
                         </ol>
                     </div>
