@@ -98,8 +98,8 @@ class UserController extends Controller
                 return $assets->email;
             })
             ->addColumn('created_at', function($asset){
-                $post_type = ($asset->post_type == 'publish') ? 'Published' : 'Draft';
-                return $post_type.'<br>'.date('Y-m-d h:i A', strtotime($asset->created_at));
+
+                return date('Y-m-d h:i A', strtotime($asset->created_at));
             })
             ->addColumn('asset_img', function($asset){
                 $imgUrl = ($asset->asset_img) ? $asset->asset_img : asset('storage/uploads/assets/img_61fdc4855f55b.png');
