@@ -62,7 +62,8 @@ $role = $function->get_my_role($my_info->role);
                                 class="ti-user"></i><span>Users </span> </a>
                     </li>
                 @endif
-                <li><a href="javascript:;" class="waves-effect"><i class="ti-shopping-cart"></i> <span> Investments
+                <li><a href="{{ route('investment') }}" class="waves-effect"><i class="ti-shopping-cart"></i> <span>
+                            Investments
                         </span> </a></li>
                 @if ($role == 'Administrator')
                     <li><a href="{{ route('user.profile') }}"
